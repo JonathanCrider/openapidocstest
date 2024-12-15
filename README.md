@@ -31,3 +31,5 @@ npx @redocly/cli preview-docs openapi.yaml
 [https://dev.to/joselatines/how-to-generate-api-documentation-with-insomnia-18fg](https://dev.to/joselatines/how-to-generate-api-documentation-with-insomnia-18fg)
 
 [Open API Specification](https://swagger.io/specification)
+
+[Redocly](https://redocly.com/docs/cli/commands/build-docs)
