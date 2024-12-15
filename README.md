@@ -6,9 +6,9 @@ Based on the tuturial from [DigitalOcean](https://www.digitalocean.com/community
 
 ## Published preview
 
-[View the docs](https://jonathancrider.github.io/openapidocstest/)
+View the docs at [docs.jonathancrider.com/](https://docs.jonathancrider.com/)
 
-## Building the docs
+## Building the docs locally
 
 Use the [Redocly CLI](https://redocly.com/docs/cli) to build from the YAML file
 
@@ -16,7 +16,7 @@ Use the [Redocly CLI](https://redocly.com/docs/cli) to build from the YAML file
 npx @redocly/cli build-docs openapi.yaml
 ```
 
-## Local preview
+## Preview the docs locally
 
 Download the repo and run the docs locally
 
