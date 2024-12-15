@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.1.0
 
 # https://www.digitalocean.com/community/tutorials/how-to-create-documentation-for-your-rest-api-with-insomnia
 
@@ -7,7 +7,8 @@ info:
   description: Free fake API for testing and prototyping
   version: 0.1.0
   contact:
-    name: Jonathan Crider
+    name: Support
+    email: support@openapi.com
 
 externalDocs:
   description: "JSONPlaceholder's guide"
@@ -47,7 +48,7 @@ paths:
                 $ref: "#/components/schemas/post"
   "/posts/{id}":
     parameters:
-    - name: "id # must be same as the value in the {}"
+    - name: id # must be same as the value in the {}
       in: path
       description: ID of the post
       # Since this is in the path, the parameter HAS to be required
@@ -61,9 +62,9 @@ paths:
       summary: GET a single post
       responses:
         "200":
-          $ref: "#/components/schemas/response/200"
+          $ref: "#/components/responses/200"
         "404":
-          $ref: "#/components/schemas/response/404"
+          $ref: "#/components/responses/404"
     put:
       tags: ["post"]
       summary: UPDATE a post
@@ -75,17 +76,17 @@ paths:
         required: true
       responses:
         "200":
-          $ref: "#/components/schemas/response/200"
+          $ref: "#/components/responses/200"
         "404":
-          $ref: "#/components/schemas/response/404"
+          $ref: "#/components/responses/404"
     delete:
       tags: ["post"]
       summary: DELETE a post
       responses:
         "200":
-          $ref: "#/components/schemas/response/200"
+          $ref: "#/components/responses/200"
         "404":
-          $ref: "#/components/schemas/response/404"
+          $ref: "#/components/responses/404"
 
 components:
   schemas:
@@ -104,18 +105,17 @@ components:
         userId:
           type: number
           description: ID of the user who created the post
-    response:
-      "200":
-        description: Success
-        content:
+  responses:
+    "200":
+      description: Success
+      content:
         application/json:
           schema:
             $ref: "#/components/schemas/post"
-      "404":
-        description: Failed to find post
-        content:
-          application/json:
-            schema:
-              type: object
-              properties: {}
-          
+    "404":
+      description: Failed to find post
+      content:
+        application/json:
+          schema:
+            type: object
+            properties: {}
