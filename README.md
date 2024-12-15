@@ -23,3 +23,11 @@ Download the repo and run the docs locally
 ```bash
 npx @redocly/cli preview-docs openapi.yaml
 ```
+
+## Additional API Documentation references
+
+[https://www.postman.com/api-platform/api-documentation/](https://www.postman.com/api-platform/api-documentation/)
+
+[https://dev.to/joselatines/how-to-generate-api-documentation-with-insomnia-18fg](https://dev.to/joselatines/how-to-generate-api-documentation-with-insomnia-18fg)
+
+[Open API Specification](https://swagger.io/specification)
