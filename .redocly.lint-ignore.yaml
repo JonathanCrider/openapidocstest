@@ -1,0 +1,14 @@
+# This file instructs Redocly's linter to ignore the rules contained for specific parts of your API.
+# See https://redocly.com/docs/cli/ for more information.
+openapi.yaml:
+  info-license:
+    - '#/info'
+  struct:
+    - '#/paths/~1posts/post/responses/application~1json'
+    - '#/paths/~1posts/post/responses/422/content'
+  security-defined:
+    - '#/paths/~1posts/get'
+    - '#/paths/~1posts/post'
+    - '#/paths/~1posts~1{id}/get'
+    - '#/paths/~1posts~1{id}/put'
+    - '#/paths/~1posts~1{id}/delete'

@@ -31,6 +31,8 @@ paths:
             application/json: # Response is returned in JSON
               schema:
                 $ref: "#/components/schemas/post"
+        "404":
+          $ref: "#/components/responses/404"
     post:
       tags: ["posts"]
       summary: CREATE a new post
@@ -49,6 +51,13 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/post"
+        "422":
+          description: Failed to create a post
+          content:
+        application/json:
+          schema:
+            type: object
+            properties: {} 
   "/posts/{id}":
     parameters:
     - name: id # must be same as the value in the {}
