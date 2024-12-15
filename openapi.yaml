@@ -1,0 +1,121 @@
+openapi: 3.0.3
+
+# https://www.digitalocean.com/community/tutorials/how-to-create-documentation-for-your-rest-api-with-insomnia
+
+info:
+  title: JSONPlaceholder test documentation
+  description: Free fake API for testing and prototyping
+  version: 0.1.0
+  contact:
+    name: Jonathan Crider
+
+externalDocs:
+  description: "JSONPlaceholder's guide"
+  url: https://jsonplaceholder.typicode.com/guide
+
+servers:
+- url: https://jsonplaceholder.typicode.com
+  description: JSONPlaceholder
+
+paths:
+  "/posts":
+    get:
+      tags: ["posts"]
+      summary: GET all posts. 
+      responses:
+        "200": # 200 Status Code
+          description: Success
+          content:
+            application/json: # Response is returned in JSON
+              schema:
+                $ref: "#/components/schemas/post"
+    post:
+      tags: ["posts"]
+      summary: CREATE a new post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/post"
+        required: true
+      responses:
+        "201":
+          description: Post was successfully created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/post"
+  "/posts/{id}":
+    parameters:
+    - name: "id # must be same as the value in the {}"
+      in: path
+      description: ID of the post
+      # Since this is in the path, the parameter HAS to be required
+      required: true
+      # Defining the type of the parameter
+      schema:
+        # in this case, it is just a string
+        type: number
+    get:
+      tags: ["post"]
+      summary: GET a single post
+      responses:
+        "200":
+          $ref: "#/components/schemas/response/200"
+        "404":
+          $ref: "#/components/schemas/response/404"
+    put:
+      tags: ["post"]
+      summary: UPDATE a post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/post"
+        required: true
+      responses:
+        "200":
+          $ref: "#/components/schemas/response/200"
+        "404":
+          $ref: "#/components/schemas/response/404"
+    delete:
+      tags: ["post"]
+      summary: DELETE a post
+      responses:
+        "200":
+          $ref: "#/components/schemas/response/200"
+        "404":
+          $ref: "#/components/schemas/response/404"
+
+components:
+  schemas:
+    post:
+      type: object
+      properties:
+        id:
+          type: number
+          description: ID of the post
+        title:
+          type: string
+          description: Title of the post
+        body:
+          type: string
+          description: Body of the post
+        userId:
+          type: number
+          description: ID of the user who created the post
+    response:
+      "200":
+        description: Success
+        content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/post"
+      "404":
+        description: Failed to find post
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+          
