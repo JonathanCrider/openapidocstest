@@ -141,4 +141,6 @@ components:
 
 tags:
   - name: post
-    description: Content posted by users
+    description: Single piece of content posted by users
+  - name: posts
+    description: Relating to any or all posts made by users
