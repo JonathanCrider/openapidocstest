@@ -1,10 +1,11 @@
-# https://www.digitalocean.com/community/tutorials/how-to-create-documentation-for-your-rest-api-with-insomnia
-
 openapi: 3.1.0
 info:
   title: JSONPlaceholder test documentation
   description: Free fake API for testing and prototyping
   version: 0.1.0
+  license:
+    name: MIT
+    url: mit.license.com
   contact:
     name: Support
     email: support@openapi.com
@@ -54,10 +55,10 @@ paths:
         "422":
           description: Failed to create a post
           content:
-        application/json:
-          schema:
-            type: object
-            properties: {} 
+            application/json:
+              schema:
+                type: object
+                properties: {} 
   "/posts/{id}":
     parameters:
     - name: id # must be same as the value in the {}
@@ -107,6 +108,20 @@ paths:
           $ref: "#/components/responses/404"
 
 components:
+  responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/post"
+      "404":
+        description: Failed to find post
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
   schemas:
     post:
       type: object
@@ -123,17 +138,3 @@ components:
         userId:
           type: number
           description: ID of the user who created the post
-  responses:
-    "200":
-      description: Success
-      content:
-        application/json:
-          schema:
-            $ref: "#/components/schemas/post"
-    "404":
-      description: Failed to find post
-      content:
-        application/json:
-          schema:
-            type: object
-            properties: {}
