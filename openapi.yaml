@@ -4,7 +4,7 @@ info:
   description: Free fake API for testing and prototyping
   version: 0.1.0
   license:
-    name: MIT
+    name: Licensed for use under MIT
     url: mit.license.com
   contact:
     name: Support
@@ -138,3 +138,7 @@ components:
         userId:
           type: number
           description: ID of the user who created the post
+
+tags:
+  - name: post
+    description: Content posted by users
