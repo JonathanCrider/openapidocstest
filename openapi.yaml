@@ -1,7 +1,6 @@
-openapi: 3.1.0
-
 # https://www.digitalocean.com/community/tutorials/how-to-create-documentation-for-your-rest-api-with-insomnia
 
+openapi: 3.1.0
 info:
   title: JSONPlaceholder test documentation
   description: Free fake API for testing and prototyping
@@ -23,8 +22,8 @@ paths:
     get:
       tags: ["posts"]
       summary: GET all posts.
-      description: test
-      operationId: operationId
+      description: Retrieves all available posts
+      operationId: operationId0
       responses:
         "200": # 200 Status Code
           description: Success
@@ -35,13 +34,13 @@ paths:
     post:
       tags: ["posts"]
       summary: CREATE a new post
-      description: test
-      operationId: operationId
+      description: Creates a new post for the user
+      operationId: operationId1
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/post/"
+              $ref: "#/components/schemas/post"
         required: true
       responses:
         "201":
@@ -49,7 +48,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/post/"
+                $ref: "#/components/schemas/post"
   "/posts/{id}":
     parameters:
     - name: id # must be same as the value in the {}
@@ -64,8 +63,8 @@ paths:
     get:
       tags: ["post"]
       summary: GET a single post
-      description: test
-      operationId: operationId
+      description: Get a post by unique post ID
+      operationId: operationId2
       responses:
         "200":
           $ref: "#/components/responses/200"
@@ -74,8 +73,8 @@ paths:
     put:
       tags: ["post"]
       summary: UPDATE a post
-      description: test
-      operationId: operationId
+      description: Update a post by unique post ID
+      operationId: operationId3
       requestBody:
         content:
           application/json:
@@ -90,8 +89,8 @@ paths:
     delete:
       tags: ["post"]
       summary: DELETE a post
-      description: test
-      operationId: operationId
+      description: Delete a post by unique post ID
+      operationId: operationId4
       responses:
         "200":
           $ref: "#/components/responses/200"

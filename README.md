@@ -9,5 +9,5 @@ Based on the tuturial from [DigitalOcean](https://www.digitalocean.com/community
 Use the [Redocly CLI](https://redocly.com/docs/cli) to build from the YAML file
 
 ```bash
-npx @redocly/cli build-docs openapi.yaml
+redocly bundle openapi.yaml
 ```
